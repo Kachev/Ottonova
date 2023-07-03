@@ -1,0 +1,171 @@
+.gender.male {
+  height: 56px;
+  padding-top: 0;
+  padding-bottom: 0;
+  animation-duration: 2s;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.input-gender-male {
+  display: none;
+}
+
+.male-wrapper {
+  transform: scale(var(--scale, 0.5)) translateZ(0);
+}
+
+.male-body-top {
+  position: relative;
+  width: 14px;
+  height: 26px;
+  background-color: lightgray;
+  border-radius: 2px;
+}
+
+.male-body-top::before {
+  position: absolute;
+  bottom: 28px;
+  left: 1px;
+  width: 12px;
+  height: 12px;
+  background-color: lightgray;
+  border-radius: 50%;
+  content: "";
+}
+
+.male-arm-left {
+  --r: 0deg;
+  --r-to: 8deg;
+  --t: 0px;
+  --h: 20px;
+  --name: arm-left;
+  --w: 4px;
+  position: absolute;
+  top: var(--t, 0);
+  left: -6px;
+  width: var(--w, 6px);
+  height: var(--h, 14px);
+  background-color: lightgray;
+  border-radius: var(--br, 6px);
+}
+
+.male-arm-right {
+  --t: 0px;
+  --l: 16px;
+  --r: 0deg;
+  --r-to: -20deg;
+  --name: arm-right;
+  --w: 4px;
+  --h: 20px;
+  --origin-1r: center;
+  position: absolute;
+  top: var(--t, 0);
+  left: var(--l, -6px);
+  width: var(--w, 6px);
+  height: var(--h, 14px);
+  background-color: lightgray;
+  border-radius: var(--br, 6px);
+  transform: rotate(var(--r, 0deg));
+  transform-origin: var(--origin-1r, center);
+}
+
+.male-body-bottom {
+  position: relative;
+  width: 14px;
+  height: 11px;
+}
+
+.male-leg-left {
+  --h: 26px;
+  --t: -3px;
+  --l: 0px;
+  position: absolute;
+  top: var(--t, 0);
+  left: var(--l, -6px);
+  width: var(--w, 6px);
+  height: var(--h, 14px);
+  background-color: lightgray;
+  border-radius: var(--br, 6px);
+}
+
+.male-leg-right {
+  --t: -3px;
+  --l: 8px;
+  --h: 26px;
+  position: absolute;
+  top: var(--t, 0);
+  left: var(--l, -6px);
+  width: var(--w, 6px);
+  height: var(--h, 14px);
+  background-color: lightgray;
+  border-radius: var(--br, 6px);
+}
+@keyframes rightHandRaiseAnimationMale {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  40% {
+    transform: translateY(0px) translateX(-7px) rotate(-130deg);
+  }
+  50%,
+  70% {
+    transform: translateY(0px) translateX(-7px) rotate(-130deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+@keyframes leftHandAnimationMale {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  40% {
+    transform: translateY(1px) translateX(0px) rotate(8deg);
+  }
+  50%,
+  70% {
+    transform: translateY(1px) translateX(0px) rotate(8deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+@keyframes bodyTiltAnimationMale {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  40% {
+    transform: translateY(-1px) translateX(-2px) rotate(-8deg);
+  }
+  50%,
+  70% {
+    transform: translateY(-1px) translateX(-2px) rotate(-8deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+.gender.male.selected .male-body-top {
+  background-color: #fff;
+  animation: bodyTiltAnimationMale 2s forwards;
+}
+
+.gender.male.selected .male-arm-left {
+  background-color: #fff;
+  animation: leftHandAnimationMale 2s forwards;
+}
+
+.gender.male.selected .male-arm-right {
+  background-color: #fff;
+  transform-origin: top right;
+  animation: rightHandRaiseAnimationMale 2s forwards;
+}
+
+.gender.male.selected .male-leg-left,
+.gender.male.selected .male-leg-right,
+.gender.male.selected .male-body-top::before {
+  background-color: #fff;
+}

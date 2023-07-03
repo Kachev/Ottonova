@@ -1,0 +1,77 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 40rem;
+  margin-top:50px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-container {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 10px;
+  height: 55px;
+  cursor: text;
+}
+.input-container.show {
+  border: 1px solid #0077ff;
+}
+
+.input-container.show:hover {
+  border: 1px solid #0077ff;
+}
+
+.input-container:hover {
+  border: 1px solid #667093;
+  animation: ease-in;
+  animation-delay: 100s;
+}
+
+.input-container input {
+  height: 17px;
+  width: 100%;
+  color: #000;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  display: none;
+}
+.input-container.changed input {
+  display: flex;
+  background-color:transparent;
+}
+label.changed-label {
+  font-size: 10px !important;
+}
+
+.input-container.show input {
+  display: flex;
+}
+input::placeholder {
+  color: lightgray;
+}
+
+.input-container label {
+  display: block;
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #667093;
+  cursor: text;
+  transition: font-size 0.2s ease;
+}
+
+label.selected {
+  color: #0077ff;
+  font-size: 13px;
+}

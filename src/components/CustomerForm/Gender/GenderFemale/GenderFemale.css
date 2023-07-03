@@ -1,0 +1,182 @@
+.gender.female {
+  height: 56px;
+  padding-top: 0;
+  padding-bottom: 0;
+  animation-duration: 2s;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.input-gender-female {
+  display: none;
+}
+.female-wrapper {
+  transform: scale(var(--scale, 0.5)) translateZ(0);
+}
+
+.female-body-top::before {
+  position: absolute;
+  bottom: 28px;
+  left: 1px;
+  width: 12px;
+  height: 12px;
+  background-color: lightgray;
+  border-radius: 50%;
+  content: "";
+}
+.female-body-top {
+  position: relative;
+  width: 0;
+  height: 26px;
+  background-color: lightgray;
+  border-radius: 2px;
+}
+.female-body-top::after {
+  position: absolute;
+  top: -4px;
+  left: 1px;
+  width: 12px;
+  height: 23px;
+  background-color: lightgray;
+  border-radius: 2px 2px 1px 1px;
+  content: "";
+  transform: perspective(10px) rotateX(22deg);
+}
+
+.female-arm-left {
+  --r: 14deg;
+  --r-to: 15deg;
+  --t: 0px;
+  --h: 20px;
+  --name: arm-left;
+  --w: 4px;
+  --l: -6px;
+  position: absolute;
+  top: var(--t, 0);
+  left: var(--l, -6px);
+  width: var(--w, 6px);
+  height: var(--h, 14px);
+  background-color: lightgray;
+  border-radius: var(--br, 6px);
+  transform: rotate(var(--r, 0deg));
+}
+
+.female-arm-right {
+  --t: 0px;
+  --l: 16px;
+  --r: -15deg;
+  --r-to: -120deg;
+  --name: arm-right;
+  --w: 4px;
+  --h: 20px;
+  --origin-1r: center;
+  position: absolute;
+  top: var(--t, 0);
+  left: var(--l, -6px);
+  width: var(--w, 6px);
+  height: var(--h, 14px);
+  background-color: lightgray;
+  border-radius: var(--br, 6px);
+  transform: rotate(var(--r, 64deg));
+}
+
+.female-body-bottom {
+  position: relative;
+  width: 14px;
+  height: 11px;
+}
+
+.female-leg-left {
+  --h: 26px;
+  --t: -3px;
+  --l: 0px;
+  position: absolute;
+  top: var(--t, 0);
+  left: var(--l, -6px);
+  width: var(--w, 6px);
+  height: var(--h, 14px);
+  background-color: lightgray;
+  border-radius: var(--br, 6px);
+}
+
+.female-leg-right {
+  --t: -3px;
+  --l: 8px;
+  --h: 26px;
+  position: absolute;
+  top: var(--t, 0);
+  left: var(--l, -6px);
+  width: var(--w, 6px);
+  height: var(--h, 14px);
+  background-color: lightgray;
+  border-radius: var(--br, 6px);
+}
+@keyframes rightHandRaiseAnimationFemale {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  40% {
+    transform: translateY(0px) translateX(-7px) rotate(-130deg);
+  }
+  50%,
+  70% {
+    transform: translateY(0px) translateX(-7px) rotate(-130deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(-2.5px) rotate(-15deg);
+  }
+}
+@keyframes leftHandAnimationFemale {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(15deg);
+  }
+  40% {
+    transform: translateY(1px) translateX(0px) rotate(20deg);
+  }
+
+  50%,
+  70% {
+    transform: translateY(1px) translateX(0px) rotate(20deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(15deg);
+  }
+}
+
+@keyframes bodyTiltAnimationFemale {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  40% {
+    transform: translateY(0px) translateX(0px) rotate(-8deg);
+  }
+  50%,
+  70% {
+    transform: translateY(0px) translateX(0px) rotate(-8deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+.gender.female.selected .female-body-top {
+  background-color: #fff;
+  animation: bodyTiltAnimationFemale 2s forwards;
+}
+
+.gender.female.selected .female-arm-left {
+  background-color: #fff;
+  animation: leftHandAnimationFemale 2s forwards;
+}
+
+.gender.female.selected .female-arm-right {
+  transform-origin: top right;
+  background-color: #fff;
+  animation: rightHandRaiseAnimationFemale 2s forwards;
+}
+
+.gender.female.selected .female-leg-left,
+.gender.female.selected .female-leg-right,
+.gender.female.selected .female-body-top::before,
+.gender.female.selected .female-body-top::after {
+  background-color: #fff;
+}
